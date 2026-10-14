@@ -27,51 +27,40 @@
         <section class="preguntas-frecuentes">
             <h1>Gestión de médicos</h1>
 
-            <!-- Aquí se mostrarán avisos: "Médico creado", errores, etc. El JS escribe en este párrafo -->
+            <!-- Párrafo vacío. "mensaje" es el aviso: el JS escribe aquí "Médico creado", errores, etc. -->
             <p id="mensaje"></p>
 
-            <!-- FORMULARIO: agrupa los campos. Al pulsar el botón "Guardar" se activa el evento "submit" -->
+            <!-- Formulario para crear y editar -->
             <form id="form-medico">
-
-                <!-- Título que el JS cambia: "Nuevo médico" al crear, "Editar médico" al editar -->
                 <h2 id="titulo-form">Nuevo médico</h2>
 
-                <!-- Campo invisible. Guarda el id del médico que estás editando.
-                     Vacío = estás creando (POST). Con número = estás editando (PUT) -->
-                <input type="hidden" id="medico-id">
+                <label for="medico-id">ID</label> <!-- caja de solo lectura, se asigna automáticamente -->
+                <input type="text" id="medico-id" placeholder="Se asigna solo" readonly> <!-- caja vacia -->
 
-                <!-- Texto que ve el usuario. "for" lo une con el campo que tiene id="nombre" -->
                 <label for="nombre">Nombre</label>
-                <!-- Caja donde se escribe el nombre.
-                     id="nombre"     → el JS lo lee con getElementById("nombre").value
-                     maxlength="100" → máximo 100 letras (igual que el modelo)
-                     required        → el navegador no deja enviarla vacía -->
                 <input type="text" id="nombre" maxlength="100" required>
 
-                <!-- Lo mismo, para la especialidad -->
                 <label for="especialidad">Especialidad</label>
                 <input type="text" id="especialidad" maxlength="100" required>
 
-                <!-- Botón que ENVÍA el formulario (type="submit"): dispara el JS que guarda -->
+                <!-- Envía el formulario -->
                 <button type="submit" id="btn-guardar" class="btn-explorar">Guardar</button>
-
-                <!-- Botón que NO envía nada (type="button"). El JS lo usa para cancelar la edición.
-                     "hidden" lo oculta; el JS lo muestra solo cuando estás editando -->
+                <!-- Cancela la edición (oculto hasta que se edita) -->
                 <button type="button" id="btn-cancelar" class="btn-explorar" hidden>Cancelar</button>
             </form>
 
-            <!-- TABLA: muestra la lista -->
+            <!-- Tabla con la lista -->
             <h2>Listado de médicos</h2>
             <table>
-                <thead> <!-- Encabezado fijo: los títulos de las columnas -->
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Especialidad</th>
-                        <th>Acciones</th> <!-- Aquí irán los botones Editar y Eliminar -->
+                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <!-- Cuerpo VACÍO a propósito: el JS trae los médicos con GET y crea aquí una fila por cada uno -->
+                <!-- El JS llena las filas aquí -->
                 <tbody id="tabla-medicos"></tbody>
             </table>
         </section>

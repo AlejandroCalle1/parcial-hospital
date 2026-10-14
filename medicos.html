@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Médicos - Sistema Hospitalario</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/medicos.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1><a href="index.html" class="titulo-link">Sistema Hospitalario</a></h1>
+        <nav>
+            <ul>
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="consultas.html">Consultas médicas</a></li>
+            </ul>
+        </nav>
+        <form action="login.html" style="margin: 0;">
+            <button type="submit" class="btn-ingresar">Ingresar</button>
+        </form>
+    </header>
+
+    <main>
+        <section class="preguntas-frecuentes">
+            <h1>Gestión de médicos</h1>
+
+            <!-- Aquí se mostrarán avisos: "Médico creado", errores, etc. El JS escribe en este párrafo -->
+            <p id="mensaje"></p>
+
+            <!-- FORMULARIO: agrupa los campos. Al pulsar el botón "Guardar" se activa el evento "submit" -->
+            <form id="form-medico">
+
+                <!-- Título que el JS cambia: "Nuevo médico" al crear, "Editar médico" al editar -->
+                <h2 id="titulo-form">Nuevo médico</h2>
+
+                <!-- Campo invisible. Guarda el id del médico que estás editando.
+                     Vacío = estás creando (POST). Con número = estás editando (PUT) -->
+                <input type="hidden" id="medico-id">
+
+                <!-- Texto que ve el usuario. "for" lo une con el campo que tiene id="nombre" -->
+                <label for="nombre">Nombre</label>
+                <!-- Caja donde se escribe el nombre.
+                     id="nombre"     → el JS lo lee con getElementById("nombre").value
+                     maxlength="100" → máximo 100 letras (igual que el modelo)
+                     required        → el navegador no deja enviarla vacía -->
+                <input type="text" id="nombre" maxlength="100" required>
+
+                <!-- Lo mismo, para la especialidad -->
+                <label for="especialidad">Especialidad</label>
+                <input type="text" id="especialidad" maxlength="100" required>
+
+                <!-- Botón que ENVÍA el formulario (type="submit"): dispara el JS que guarda -->
+                <button type="submit" id="btn-guardar" class="btn-explorar">Guardar</button>
+
+                <!-- Botón que NO envía nada (type="button"). El JS lo usa para cancelar la edición.
+                     "hidden" lo oculta; el JS lo muestra solo cuando estás editando -->
+                <button type="button" id="btn-cancelar" class="btn-explorar" hidden>Cancelar</button>
+            </form>
+
+            <!-- TABLA: muestra la lista -->
+            <h2>Listado de médicos</h2>
+            <table>
+                <thead> <!-- Encabezado fijo: los títulos de las columnas -->
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Acciones</th> <!-- Aquí irán los botones Editar y Eliminar -->
+                    </tr>
+                </thead>
+                <!-- Cuerpo VACÍO a propósito: el JS trae los médicos con GET y crea aquí una fila por cada uno -->
+                <tbody id="tabla-medicos"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sistema Hospitalario. Todos los derechos reservados.</p>
+        <nav class="footer-nav">
+            <a href="index.html">Inicio</a>
+            <a href="medicos.html">Médicos</a>
+            <a href="pacientes.html">Pacientes</a>
+            <a href="consultas.html">Consultas</a>
+        </nav>
+    </footer>
+
+</body>
+</html>

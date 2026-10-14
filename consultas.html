@@ -11,7 +11,6 @@
 
     <header>
         <h1><a href="index.html" class="titulo-link">Sistema Hospitalario</a></h1>
-
         <nav>
             <ul>
                 <li><a href="medicos.html">Médicos</a></li>
@@ -19,7 +18,6 @@
                 <li><a href="consultas.html" class="activo">Consultas médicas</a></li>
             </ul>
         </nav>
-
         <form action="login.html" style="margin: 0;">
             <button type="submit" class="btn-ingresar">Ingresar</button>
         </form>
@@ -27,12 +25,15 @@
 
     <main style="padding: 30px; max-width: 1200px; margin: 0 auto;">
 
-        <!-- Sección de Formulario POST -->
+        <!-- Formulario POST / PUT -->
         <section class="contenedor-formulario" style="margin-bottom: 40px;">
-            <h2>Agendar o Registrar Consulta Médica</h2>
-            <p>Diligencie los campos para registrar una nueva consulta en el sistema.</p>
+            <h2>Agendar / Editar Consulta Médica</h2>
+            <p>Complete los datos para crear una consulta o editar una existente.</p>
 
             <form id="form-consulta" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                <!-- Campo oculto para el ID en modo edicion -->
+                <input type="hidden" id="consulta-id" value="">
+
                 <div>
                     <label for="medico">Médico (ID):</label>
                     <input type="number" id="medico" required placeholder="Ej: 1" style="width: 100%; padding: 8px;">
@@ -55,22 +56,21 @@
 
                 <div style="grid-column: span 2;">
                     <label for="diagnostico">Diagnóstico (Opcional):</label>
-                    <textarea id="diagnostico" placeholder="Evaluación o diagnóstico médico..." style="width: 100%; padding: 8px; height: 70px;"></textarea>
+                    <textarea id="diagnostico" placeholder="Evaluación médica..." style="width: 100%; padding: 8px; height: 70px;"></textarea>
                 </div>
 
-                <div style="grid-column: span 2;">
-                    <button type="submit" class="btn-explorar" style="border: none; cursor: pointer; width: 100%;">Guardar Consulta</button>
+                <div style="grid-column: span 2; display: flex; gap: 10px;">
+                    <button type="submit" id="btn-guardar-consulta" class="btn-explorar" style="border: none; cursor: pointer; flex: 1;">Guardar Consulta</button>
+                    <button type="button" id="btn-cancelar-edicion" onclick="cancelarEdicion()" style="display: none; background: #7f8c8d; color: white; border: none; padding: 10px; cursor: pointer;">Cancelar Edición</button>
                 </div>
             </form>
         </section>
 
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ccc;">
 
-        <!-- Sección de Tabla GET -->
+        <!-- Tabla GET con Acciones (PUT / DELETE) -->
         <section class="contenedor-tabla">
             <h2>Listado de Consultas Médicas</h2>
-            <p>Listado en tiempo real obtenido desde la API del backend.</p>
-
             <div style="overflow-x: auto; margin-top: 20px;">
                 <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: left; border-collapse: collapse;">
                     <thead>
@@ -81,10 +81,11 @@
                             <th>Fecha y Hora</th>
                             <th>Motivo</th>
                             <th>Diagnóstico</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="tabla-consultas">
-                        <!-- Las filas se cargan dinámicamente mediante JS -->
+                        <!-- Carga dinámica -->
                     </tbody>
                 </table>
             </div>
@@ -100,7 +101,6 @@
             <a href="pacientes.html">Pacientes</a>
             <a href="consultas.html">Consultas</a>
         </nav>
-        <p>Contáctanos: https://github.com/AlejandroCalle1/viajes-en-el-tiempo</p>
     </footer>
 
 </body>

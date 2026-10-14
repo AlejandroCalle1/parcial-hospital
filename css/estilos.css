@@ -1,0 +1,609 @@
+body { /* este body pone toda la página con esta fuente en caso de que no haya sido asignada ninguna, por lo que no es necesario repetirla en cada estilo si se quiere dejar así */
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #2c3e50;
+    line-height: 1.6; /* altura de línea para mejorar la legibilidad */
+}
+
+header { /* Estilos para el header incluyendo el nav */
+    display: grid; /* convierte el header en un contenedor de cuadrícula */
+    grid-template-columns: 1fr auto 1fr; /* define tres columnas, la primera y la tercera ocupan el mismo espacio, la segunda se ajusta al contenido */
+    align-items: center; /* alinea verticalmente los elementos */
+    justify-items: center; /* evita que los hijos se estiren para llenar su columna */
+}
+
+.btn-ingresar { /* Estilos para el botón de ingreso */
+    background-color: #1a3a6b; /* azul oscuro, cámbialo por tu paleta */
+    color: white;
+    padding: 10px 20px; /* espacio interno de retícula */
+    border-radius: 5px;
+    cursor: pointer; /* cambia el cursor al pasar sobre el botón */
+    font-size: 0.9rem; /* tamaño de fuente */
+}
+
+nav ul { /* Estilos para la barra de navegación, ya que los estilos en ocasiones solo afectan a hijos y no a descendientes, es decir que si le aplicara solo header no aplicaría a los LI */
+    display: flex; /* convierte en un contenedor flexible, y que LI se acomoden horizontalmente */
+    list-style: none; /* elimina los puntos de la lista */
+    gap: 20px; /* espacio entre los elementos de la lista */
+}
+
+.titulo-link, nav ul li a { /* estilos para los enlaces de navegación y el título del sitio web */
+    text-decoration: none; /* elimina el subrayado de los enlaces */
+    color: #4a5568; /* color del texto */
+    font-size: 0.95rem; /* tamaño de fuente */
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: color 0.25s ease, transform 0.25s ease; /* transición suave para el efecto hover */
+    display: inline-block;    /* permite aplicar transformaciones al elemento */
+}
+
+.titulo-link { /* estilos para el título del sitio web */
+    color: #1a3a6b;
+    font-size: 2rem;
+}
+
+nav ul li a:hover { /* estilos para los enlaces de navegación al pasar el mouse */
+    color: white; /* azul institucional al pasar el mouse */
+    transform: translateY(-2px) scale(1.2); /* elevación sutil y fluida */
+    font-size: 1rem;
+    background-color: #1a3a6b; /* azul institucional al pasar el mouse */
+}
+
+/* Estilos para body 1 seccion, el hero ------------------------------------------------------------ */
+.hero { /* contenedor del hero */
+    background-image: url('../img/hero.jpg'); /* imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* altura de imagen */
+
+    /* texto del hero */
+    display: flex;
+    flex-direction: column;      /* apila los hijos verticalmente, en vez de en fila */
+    justify-content: flex-start; /* pega contenido arriba */
+    align-items: flex-start;     /* pega el contenido a la izquierda */
+    text-align: left;            /* alinea el texto a la izquierda */
+    padding: 20px 40px;
+    color: #ffffff;
+}
+
+.buscador-flotante { /* Body 1 sección, etiqueta blanca */
+    background-color: rgba(255, 255, 255, 0.8); /* 0.8 equivale al 80% de opacidad */
+    color: #333;
+    border-radius: 15px;
+    padding: 24px 32px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    align-self: center;
+    position: relative;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.btn-explorar { /* estilos para el botón de explorar */
+    display: inline-block;
+    background-color: #1a3a6b;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-explorar:hover { /* efecto hover para el botón de explorar */
+    background-color: #142e54;
+}
+
+/* Body 2 seccion, cuadrícula de destinos ---------------------------------------------------------------------------------------------------------------------------------  */
+.destinos_turisticos {   /* contenedor de la cuadrícula de destinos */
+    padding: 50px; /* espacio interno alrededor de la cuadrícula */
+    color: #333;
+}
+
+.grid-destinos {      /* contenedor de la cuadrícula de destinos */
+    display: grid; /* convierte el contenedor en una cuadrícula,grid es mejor para columnas  */
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas de igual tamaño */
+    gap: 70px; /* espacio entre los elementos de la cuadrícula */
+}
+
+/*estilos para cada tarjeta de destino */
+.tarjeta-destino {
+    position: relative; /* para poder posicionar el contenido dentro de la tarjeta */
+    display:block; /* hace que toda la tarjeta sea clickeable */
+    text-decoration: none; /* elimina el subrayado del enlace */
+    color: white; /* color del texto dentro de la tarjeta */
+    border-radius: 10px; /* bordes redondeados */
+    overflow: hidden; /* asegura que el contenido no se desborde de la tarjeta */
+    height: 300px; /* altura de la tarjeta */
+}
+.tarjeta-destino img {  /* estilos para la imagen dentro de la tarjeta */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* la imagen llena la tarjeta sin deformarse, similar a background-size: cover */
+}
+.etiqueta {   
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #1a3a6b; /* azul oscuro, cámbialo por tu paleta */
+    color: white;
+    padding: 8px 16px;      /* espacio interno de retícula */    
+    border-radius: 50px; /* esto crea la forma de "píldora" redondeada */
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+
+/* Body 3 seccion, cuadrícula de hoteles ---------------------------------------------------------------------------------------------------------------------------------  */
+.hoteles_destinos{
+    position: relative; /* para poder posicionar el contenido dentro de la tarjeta */
+    padding: 50px;  /* espacio interno alrededor de la cuadrícula, para que quede alineado con lo demas */
+    font-family: sans-serif;
+    color: #333;
+}
+
+.grid-hoteles {   /* contenedor de la cuadrícula de hoteles */
+    display: grid; /* convierte el contenedor en una cuadrícula */
+    grid-template-columns: repeat(3, 1fr); /* Crea tres columnas de igual tamaño */
+    gap: 70px; /* espacio entre los elementos de la cuadrícula */
+}
+
+/*estilos para cada tarjeta de destino */
+.tarjeta-hotel {
+    position: relative; /* para poder posicionar el contenido dentro de la tarjeta */
+    display:block; /* hace que toda la tarjeta sea clickeable */
+    text-decoration: none; /* elimina el subrayado del enlace */
+    color: white; /* color del texto dentro de la tarjeta */
+    border-radius: 10px; /* bordes redondeados */
+    overflow: hidden; /* asegura que el contenido no se desborde de la tarjeta */
+    height: 300px; /* altura de la tarjeta */
+}
+
+.tarjeta-hotel img {   /* estilos para la imagen dentro de la tarjeta */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* la imagen llena la tarjeta sin deformarse, similar a background-size: cover */
+}
+
+/*seccion de preguntas frecuentes, utilizacion de javaScript "mostrar o ocultar info",FAQ DESPEGABLE --------------------------------------------------------------- */
+.preguntas-frecuentes {  /* contenedor de la sección de preguntas frecuentes */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.item-acordeon {       /* contenedor de cada pregunta y respuesta */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.boton-acordeon {    /* estilos para el botón que despliega la respuesta */
+    width: 100%;
+    text-align: left;
+    background-color: #f1f1f1;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.item-acordeon p {   /* oculto por defecto */
+    display: none;  /* la respuesta está oculta inicialmente */
+    padding: 15px;
+}
+
+.item-acordeon p.mostrar {  /* cuando se hace clic en el botón, se agrega la clase "mostrar" para mostrar la respuesta, visible cuando javaScript lo active */
+    display: block;
+}
+
+/*pagina hoteles y paquetes de viajes*/
+.formulario-reserva form {  /* contenedor del formulario de reserva */
+    display: flex;           /* convierte el formulario en un contenedor flexible */
+    flex-direction: column;   /* apila los elementos verticalmente */
+    max-width: 500px;         /* que no se estire a todo el ancho de la pantalla */
+    margin: 30px auto;        /* centra el formulario horizontalmente */
+    gap: 15px;                /* espacio entre cada label/input */
+}
+
+.formulario-reserva input,  /* estilos para los campos de entrada del formulario */
+.formulario-reserva select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.formulario-reserva button { /* estilos para el botón de envío del formulario */
+    padding: 14px;
+    background-color: #1a3a6b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.formulario-reserva button:hover {  /* efecto hover para el botón de envío del formulario */
+    background-color: #12294d;
+}
+
+/* pagina destinos historicos ------------------------------------------------------------------------------------------------------------*/ 
+
+/* Banner principal con imagen de fondo y superposición (Overlay) */
+.banner-pagina { 
+    background-image: linear-gradient( 
+        rgba(136, 182, 255, 0.75), 
+        rgba(13, 35, 71, 0.75)
+    ), url('../img/banner_historico.jpg'); /*la iamgen de fondo del banner de las laspagina con un efecto de degradado*/
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; /*le decimos que no repita la iamgen para qeu ocupe todo el espacio bien*/
+    font-weight: 700; /* tamaño fuente en caso de no ser asingado ya*/
+    color: white;
+    text-align: center;
+    padding: 100px 20px; /*bordes*/
+    font-family: sans-serif;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2); /*sombreados de portada*/
+}
+
+
+.banner-pagina-futurista {
+    background-image: linear-gradient(
+        rgba(136, 182, 255, 0.75), 
+        rgba(13, 35, 71, 0.75)
+    ), url('../img/banner_futurista.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-weight: 800; 
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    font-family: sans-serif;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Badge decorativo superior esto es para el chronos que aparece en el banner encapsulado*/
+.subtitulo-badge { 
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(4px);
+}
+
+/* estilo del titulo de chronos travel de la parte principal del menu superior en la barra navegacion*/
+.titulo-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 10px 24px; /* Ajustamos un poco el padding para que acompañe al texto grande */
+    border-radius: 20px;
+    
+    font-size: 1.25rem;   /* Sin espacio entre número y rem (3rem suele ser enorme para un badge, pero ajústalo a tu gusto) */
+    font-weight: 700;    /* Controla el grosor: 700 es 'bold' (negrita), 900 es 'black' (súper grueso) */
+    
+    text-transform: uppercase;
+    letter-spacing: 3px;  /* Reducimos ligeramente el espaciado para evitar que desborde */
+    backdrop-filter: blur(4px);
+}
+
+/* Título principal */
+.banner-pagina h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Línea divisora dorada */
+.linea-decorativa {
+    width: 60px;
+    height: 3px;
+    background-color: #f39c12;
+    margin: 0 auto 20px auto;
+    border-radius: 2px;
+}
+
+/* Subtítulo o descripción del banner */
+.banner-pagina p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.95;
+    line-height: 1.5;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal de tarjetas */
+.contenedor-destinos-historicos {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px; /*margen desde adentro del contenedor de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    gap: 70px; /* Espacio vertical entre cada tarjeta */
+    font-family: sans-serif;
+}
+
+/* Tarjeta individual en zigzag */
+.tarjeta-zigzag {
+    display: flex; /*convertimos en contenedor felixble o sea colocar imagenes y texto lado a lado */
+    align-items: center;
+    gap: 50px; /* Espacio entre imagen y texto espacio interno */
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden; /*importante cortaquita cualquier contenido hijo como la iamgens para que no sobresalga de esto*/
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    
+    /* Estado inicial para la animación por scroll */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease;
+}
+
+/* Para intercalar la posición (Texto a la izquierda, imagen a la derecha) */
+.tarjeta-zigzag.invertido {
+    flex-direction: row-reverse;
+}
+
+/* Clase que activa el JavaScript al llegar con el scroll */
+.tarjeta-zigzag.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto hover al pasar el cursor sobre la tarjeta */
+.tarjeta-zigzag:hover {
+    transform: translateY(-8px) !important; /* este movimiento tiene prioridad*/
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /*aumenta la sombra efecto agrandamiento*/
+}
+
+/* Contenedor de la imagen */
+.imagen-zigzag {
+    flex: 1; /*debe ocupar el espacio disponible o sea el 50% ta que el otro tiene 1 tambien el texto*/
+    height: 380px;
+    overflow: hidden; /* Mantiene la imagen dentro del marco al ampliar */
+}
+
+.imagen-zigzag img {
+    width: 100%; /*ocupa el 100% del contenedor permitido del padre imagen.zigzag*/
+    height: 100%;
+    object-fit: cover; /* hace que mantenga la calidad no se estire solo se amplie*/
+    display: block;/*Elimina un pequeño espacio en blanco (de 3 a 4 píxeles) que los navegadores agregan por defecto debajo de las imágenes en línea.*/
+    transition: transform 0.5s ease; /* Transición suave de zoom */
+}
+
+/* Micro-zoom en la imagen al estar encima sobre la tarjeta */
+.tarjeta-zigzag:hover .imagen-zigzag img {
+    transform: scale(1.06);
+}
+
+/* Contenedor del texto */
+.contenido-zigzag {
+    flex: 1;
+    padding: 30px 40px;
+    color: #333;
+    
+}
+
+.contenido-zigzag h2 {
+    font-size: 1.8rem;
+    font-weight: 700; /* para el título del destino */
+    color: #1a3a6b;
+    margin-bottom: 15px;
+}
+
+.contenido-zigzag p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Botón de reserva */
+.btn-reserva {
+    display: inline-block;
+    background-color: #1a3a6b;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none; /*quita subrayado a la imagen*/
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-reserva:hover {
+    background-color: #0d2347;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(26, 58, 107, 0.3);
+}
+
+/* fin pagina de destinos historicos ------------------------------------------------------------------------------------------------------*/
+
+/* comienzo pagina de reglas*/
+
+/* Títulos de Sección */
+.titulo-seccion {
+  max-width: 1100px;
+  margin: 30px auto 15px;
+  padding: 0 15px;
+  font-size: 1.3rem;
+}
+.texto-rojo { color: #dc2626; }
+.texto-amarillo { color: #d97706; }
+.texto-azul { color: #1e3a8a; }
+
+.reglas-grid {
+  display: grid;
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 0 15px;
+}
+
+.reglas-grid.alto {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.reglas-grid.medio {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.tarjeta {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.borde-rojo { border-left: 4px solid #dc2626; }
+.borde-amarillo { border-left: 4px solid #f59e0b; }
+
+.tarjeta-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.num {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.etiqueta {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.etiqueta-roja {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.etiqueta-amarilla {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.tarjeta h3 {
+  margin: 0 0 6px 0;
+  font-size: 0.85rem;
+  color: #0f172a;
+}
+
+.tarjeta p {
+  margin: 0;
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* Centrado del Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* fin pagina de reglas*/
+
+
+/* Estilos para el Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-card h2 {
+    color: #1a1a6b;
+    margin-bottom: 5px;
+}
+
+.login-card p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #1a1a6b;
+}
+
+.btn-login {
+    background-color: #1a1a6b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #2a2a8b;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 10px;
+    color: #1a1a6b;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

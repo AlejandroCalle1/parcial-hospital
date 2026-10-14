@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Hospitalario</title>
+    <link rel="stylesheet" href="css/estilos.css">  <!-- Hoja de estilos (sin cambios) -->
+    <script src="js/acordeon.js" defer></script>  <!-- Se ejecuta cuando el HTML termina de cargar -->
+</head>
+<body>
+
+    <header>
+        <h1><a href="index.html" class="titulo-link">Sistema Hospitalario</a></h1>
+
+        <nav> <!-- Barra de menu -->
+            <ul> <!-- UL lista desordenada, LI crea cada item -->
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="consultas.html">Consultas médicas</a></li>
+            </ul>
+        </nav>
+
+        <form action="login.html" style="margin: 0;">
+            <button type="submit" class="btn-ingresar">Ingresar</button>
+        </form>
+    </header>
+
+
+    <main>  <!-- sección principal -->
+
+        <section class="hero">     <!-- sección hero con imagen de fondo y texto centrado -->
+            <h1>Gestión hospitalaria integral</h1>
+
+            <div class="buscador-flotante">
+                <p>Administra médicos, pacientes y consultas médicas desde un solo lugar.</p>
+                <a href="consultas.html" class="btn-explorar">Ver consultas</a>
+            </div>
+
+        </section>
+
+        <section class="destinos_turisticos"> <!-- sección de módulos principales -->
+            <h2>Módulos del sistema</h2>
+            <h4>Accede a la gestión de médicos, pacientes y consultas médicas. Cada módulo permite crear, consultar, actualizar y eliminar registros.</h4>
+
+            <div class="grid-destinos"> <!-- contenedor de la cuadrícula de módulos -->
+
+                <a href="medicos.html" class="tarjeta-destino"> <!-- enlace al módulo de médicos -->
+                    <img src="img/medicos.jpg" alt="Médicos">
+                    <span class="etiqueta">Gestionar médicos</span>
+                </a>
+
+                <a href="pacientes.html" class="tarjeta-destino"> <!-- enlace al módulo de pacientes -->
+                    <img src="img/pacientes.jpg" alt="Pacientes">
+                    <span class="etiqueta">Gestionar pacientes</span>
+                </a>
+
+                <a href="consultas.html" class="tarjeta-destino"> <!-- enlace al módulo de consultas -->
+                    <img src="img/consultas.jpg" alt="Consultas médicas">
+                    <span class="etiqueta">Gestionar consultas médicas</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="hoteles_destinos"> <!-- sección de accesos rápidos -->
+            <h2>Accesos rápidos</h2>
+
+            <div class="grid-hoteles"> <!-- contenedor de la cuadrícula de accesos -->
+
+                <a href="medicos.html" class="tarjeta-hotel">
+                    <img src="img/acceso-medicos.jpg" alt="Listado de médicos">
+                    <span class="etiqueta">Ver médicos</span>
+                </a>
+
+                <a href="pacientes.html" class="tarjeta-hotel">
+                    <img src="img/acceso-pacientes.jpg" alt="Listado de pacientes">
+                    <span class="etiqueta">Ver pacientes</span>
+                </a>
+
+                <a href="consultas.html" class="tarjeta-hotel">
+                    <img src="img/acceso-consultas.jpg" alt="Listado de consultas">
+                    <span class="etiqueta">Ver consultas</span>
+                </a>
+
+                <a href="medicos.html" class="tarjeta-hotel">
+                    <img src="img/registrar-medico.jpg" alt="Registrar médico">
+                    <span class="etiqueta">Registrar médico</span>
+                </a>
+
+                <a href="pacientes.html" class="tarjeta-hotel">
+                    <img src="img/registrar-paciente.jpg" alt="Registrar paciente">
+                    <span class="etiqueta">Registrar paciente</span>
+                </a>
+
+                <a href="consultas.html" class="tarjeta-hotel">
+                    <img src="img/agendar-consulta.jpg" alt="Agendar consulta">
+                    <span class="etiqueta">Agendar consulta</span>
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Sección de preguntas frecuentes, FAQ desplegable con JavaScript -->
+        <section class="preguntas-frecuentes">
+            <h1>Preguntas frecuentes</h1>
+            <p>¿Tienes dudas sobre el uso del sistema? Aquí encontrarás respuestas a las preguntas más comunes.</p>
+
+            <div class="acordeon">
+
+                <div class="item-acordeon">
+                    <button class="boton-acordeon">¿Cómo registro un nuevo médico?</button>
+                    <p>Ingrese al módulo de Médicos, complete el formulario con los datos solicitados y presione el botón de guardar.</p>
+                </div>
+
+                <div class="item-acordeon">
+                    <button class="boton-acordeon">¿Cómo registro un nuevo paciente?</button>
+                    <p>Ingrese al módulo de Pacientes, diligencie el formulario y guarde el registro. Quedará disponible en el listado.</p>
+                </div>
+
+                <div class="item-acordeon">
+                    <button class="boton-acordeon">¿Cómo agendo una consulta médica?</button>
+                    <p>En el módulo de Consultas médicas, seleccione el médico y el paciente, complete los datos de la consulta y guárdela.</p>
+                </div>
+
+                <div class="item-acordeon">
+                    <button class="boton-acordeon">¿Cómo modifico un registro existente?</button>
+                    <p>En el listado de cada módulo, use el botón de editar. Los datos se cargarán en el formulario para que pueda actualizarlos.</p>
+                </div>
+
+                <div class="item-acordeon">
+                    <button class="boton-acordeon">¿Cómo elimino un registro?</button>
+                    <p>Use el botón de eliminar en la fila correspondiente. El sistema le pedirá confirmación antes de borrar el registro.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sistema Hospitalario. Todos los derechos reservados.</p>
+        <nav class="footer-nav">
+            <a href="index.html">Inicio</a>
+            <a href="medicos.html">Médicos</a>
+            <a href="pacientes.html">Pacientes</a>
+            <a href="consultas.html">Consultas</a>
+        </nav>
+        <p>Contáctanos: https://github.com/AlejandroCalle1/viajes-en-el-tiempo</p>
+    </footer>
+
+</body>
+</html>

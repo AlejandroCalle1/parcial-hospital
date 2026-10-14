@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas Médicas - Sistema Hospitalario</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/consultas.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1><a href="index.html" class="titulo-link">Sistema Hospitalario</a></h1>
+
+        <nav>
+            <ul>
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="consultas.html" class="activo">Consultas médicas</a></li>
+            </ul>
+        </nav>
+
+        <form action="login.html" style="margin: 0;">
+            <button type="submit" class="btn-ingresar">Ingresar</button>
+        </form>
+    </header>
+
+    <main style="padding: 30px; max-width: 1200px; margin: 0 auto;">
+
+        <!-- Sección de Formulario POST -->
+        <section class="contenedor-formulario" style="margin-bottom: 40px;">
+            <h2>Agendar o Registrar Consulta Médica</h2>
+            <p>Diligencie los campos para registrar una nueva consulta en el sistema.</p>
+
+            <form id="form-consulta" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                <div>
+                    <label for="medico">Médico (ID):</label>
+                    <input type="number" id="medico" required placeholder="Ej: 1" style="width: 100%; padding: 8px;">
+                </div>
+
+                <div>
+                    <label for="paciente">Paciente (ID):</label>
+                    <input type="number" id="paciente" required placeholder="Ej: 2" style="width: 100%; padding: 8px;">
+                </div>
+
+                <div style="grid-column: span 2;">
+                    <label for="fecha">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha" required style="width: 100%; padding: 8px;">
+                </div>
+
+                <div style="grid-column: span 2;">
+                    <label for="motivo">Motivo de la consulta:</label>
+                    <textarea id="motivo" required placeholder="Describa el motivo..." style="width: 100%; padding: 8px; height: 70px;"></textarea>
+                </div>
+
+                <div style="grid-column: span 2;">
+                    <label for="diagnostico">Diagnóstico (Opcional):</label>
+                    <textarea id="diagnostico" placeholder="Evaluación o diagnóstico médico..." style="width: 100%; padding: 8px; height: 70px;"></textarea>
+                </div>
+
+                <div style="grid-column: span 2;">
+                    <button type="submit" class="btn-explorar" style="border: none; cursor: pointer; width: 100%;">Guardar Consulta</button>
+                </div>
+            </form>
+        </section>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ccc;">
+
+        <!-- Sección de Tabla GET -->
+        <section class="contenedor-tabla">
+            <h2>Listado de Consultas Médicas</h2>
+            <p>Listado en tiempo real obtenido desde la API del backend.</p>
+
+            <div style="overflow-x: auto; margin-top: 20px;">
+                <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; text-align: left; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background-color: #f4f4f4;">
+                            <th>ID</th>
+                            <th>Médico</th>
+                            <th>Paciente</th>
+                            <th>Fecha y Hora</th>
+                            <th>Motivo</th>
+                            <th>Diagnóstico</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-consultas">
+                        <!-- Las filas se cargan dinámicamente mediante JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sistema Hospitalario. Todos los derechos reservados.</p>
+        <nav class="footer-nav">
+            <a href="index.html">Inicio</a>
+            <a href="medicos.html">Médicos</a>
+            <a href="pacientes.html">Pacientes</a>
+            <a href="consultas.html">Consultas</a>
+        </nav>
+        <p>Contáctanos: https://github.com/AlejandroCalle1/viajes-en-el-tiempo</p>
+    </footer>
+
+</body>
+</html>
